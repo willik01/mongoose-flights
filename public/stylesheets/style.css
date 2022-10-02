@@ -6,3 +6,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+form {
+  line-height: 30px;
+} 
+
+#container {
+  border-width: 2px;
+  border-color: black;
+  width: 400px;
+  height: 220px;
+  background-color: aquamarine;
+  padding: 40px;
+}
+
+
+#form1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  width: 85px;
+  margin-top: 20px;
+}

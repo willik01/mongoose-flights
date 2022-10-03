@@ -8,18 +8,23 @@ a {
 }
 
 form {
-  line-height: 30px;
+  line-height: 40px;
 } 
 
 #container {
-  border-width: 2px;
+  
   border-color: black;
   width: 400px;
-  height: 220px;
+  height: 260px;
   background-color: aquamarine;
   padding: 40px;
+  border-radius: 10px;
 }
-
+select, input {
+  padding: 6px;
+  border-radius:10px;
+  border-width: 1px;
+}
 
 #form1 {
   display: flex;
@@ -30,3 +35,37 @@ form {
   width: 85px;
   margin-top: 20px;
 }
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+

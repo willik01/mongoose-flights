@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<%- include('../partials/header') %>
+<html lang="en">
+<body>
+    <%- include('../partials/topMenu') %> 
+    <table class="styled-table">
+        <thead>
+            <td colspan="4"><strong>Flight Detail</strong></td>
+        </thead>
+        <tr>
+            <th>Airline: </th><td> <%= flight.airline %></td>
+        </tr><tr>
+            <th>Departure Airport: </th><td> <%= flight.airport %></td>
+        </tr><tr>
+            <th>Flight Number: </th><td> <%= flight.flightNo %></td>
+        </tr><tr>
+            <th>Departure Time: </th><td> <%= flight.departs.toLocaleString() %></td>
+        </tr>
+    </table> 
+
+<br><br><h2>Destinations</h2>
+<form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <label>Destination:</label>
+  <select name="airport">
+    <option value="AUS">Austin (AUS)</option>
+    <option value="DFW">Dallas-Fort Worth (DFW)</option>
+    <option value="DEN">Denver (DEN)</option>
+    <option value="LAX">Los Angeles (LAX)</option>
+    <option value="SAN">San Diego (SAN)</option>
+  </select>
+  <label>Arrives:</label>
+    <input type="datetime-local" name="arrival">
+
+  <input type="submit" value="Add Arrival">
+</form>
+
+    <% if (flight.destinations.length) { %>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Arrival Airport</th>
+              <th>Arrival Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- sort flight destinations by date/time -->
+            <% flight.destinations.sort((a, b) => b.arrival - a.arrival) %>
+            <% flight.destinations.forEach(function(d) { %>
+              <tr>
+                <td><%= d.airport %></td>
+                <td> <%= d.arrival.toLocaleString() %> </td>
+                <!-- <td><%= d.arrival.toLocaleString('en-US', timeZoneName = 'short') %></td> -->
+                
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Destinations Entered Yet</h5>
+      <% } %>
+</body>
+</html>

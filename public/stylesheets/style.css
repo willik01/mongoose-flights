@@ -58,6 +58,7 @@ select, input {
 
 .styled-table tbody tr {
   border-bottom: thin solid #dddddd;
+  text-align: left;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -68,4 +69,10 @@ select, input {
   border-bottom: 2px solid #009879;
 }
 
+
+h1{ color: green;}
+
+thead {
+  /* font-size: 2em; */
+}
 

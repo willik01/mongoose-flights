@@ -19,21 +19,6 @@
     </table> 
 
 <br><br><h2>Destinations</h2>
-<form id="add-destination-form" method="POST"
-  action="/flights/<%= flight._id %>/destinations">
-  <label>Destination:</label>
-  <select name="airport">
-    <option value="AUS">Austin (AUS)</option>
-    <option value="DFW">Dallas-Fort Worth (DFW)</option>
-    <option value="DEN">Denver (DEN)</option>
-    <option value="LAX">Los Angeles (LAX)</option>
-    <option value="SAN">San Diego (SAN)</option>
-  </select>
-  <label>Arrives:</label>
-    <input type="datetime-local" name="arrival">
-
-  <input type="submit" value="Add Arrival">
-</form>
 
     <% if (flight.destinations.length) { %>
         <table class="styled-table">
@@ -45,7 +30,7 @@
           </thead>
           <tbody>
             <!-- sort flight destinations by date/time -->
-            <% flight.destinations.sort((a, b) => b.arrival - a.arrival) %>
+            <!-- <% flight.destinations.sort((a, b) => b.arrival - a.arrival) %> -->
             <% flight.destinations.forEach(function(d) { %>
               <tr>
                 <td><%= d.airport %></td>
@@ -59,5 +44,23 @@
       <% } else { %>
         <h5>No Destinations Entered Yet</h5>
       <% } %>
+
+    <h3>Add additional destination:</h3>
+    <form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+        <label>Destination:</label>
+        <select name="airport">
+            <option value="AUS">Austin (AUS)</option>
+            <option value="DFW">Dallas-Fort Worth (DFW)</option>
+            <option value="DEN">Denver (DEN)</option>
+            <option value="LAX">Los Angeles (LAX)</option>
+            <option value="SAN">San Diego (SAN)</option>
+        </select>
+        <label>Arrives:</label>
+            <input type="datetime-local" name="arrival">
+
+        <input type="submit" value="Add Arrival">
+    </form>
+
 </body>
 </html>
